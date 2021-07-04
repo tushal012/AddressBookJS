@@ -23,7 +23,7 @@ class Contact {
 
     get firstName() { return this.firstName; }
     set firstName(firstName) {
-        let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+        let firstNameRegex = /'^[A-Z]{1}[a-z]{2,}+$'/;
         if (nameRegex.test(firstName))
             this._firstName = firstName;
         else
@@ -35,7 +35,7 @@ class Contact {
 
     get lastName() { return this._lastName; }
     set lastName(lastName) {
-        let nameRegex = RegExp("^[A-Z]{1}[A-Za-z]{2,}$");
+        let nameRegex = /^[A-Za-z]+$/;
         if (nameRegex.test(lastName))
             this._lastName = lastName;
         else
@@ -129,8 +129,10 @@ try {
         "91 9852527734", "tushalkashyap11@gmail.com"));
         detailsArray.push(new Contact("Matla", "Kumar", "Patna", "City", "Bihar", "8000007",
         "91 6287456123", "matla@gmail.com"));
-    
-    
+        console.log('contacts before being updated \n');
+        detailsArray.forEach((contact) => console.log(contact.toString()));
+        detailsArray.filter(contact => contact.firstName == 'Ravi').map(contact => contact.firstName = "Bahubali");
+        console.log('contacts after being updated \n');
     detailsArray.forEach((contact) => console.log(contact.toString()));
 }
 catch (e) {
