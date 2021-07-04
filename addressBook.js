@@ -123,4 +123,16 @@ class Contact {
     }
 }
 
-console.log("Welcome to address book ");
+try {
+    let detailsArray = new Array();
+    detailsArray.push(new Contact("Tushal", "Kumar", "Patna", "City", "Bihar", "8000007",
+        "91 9852527734", "tushalkashyap11@gmail.com"));
+        detailsArray.push(new Contact("Matla", "Kumar", "Patna", "City", "Bihar", "8000007",
+        "91 6287456123", "matla@gmail.com"));
+    
+    
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+}
+catch (e) {
+    console.log('Regex test is fail \n' + e);
+}
