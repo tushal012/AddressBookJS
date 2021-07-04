@@ -153,6 +153,31 @@ try {
     }
     detailsArray.reduce(findNumberOfContacts, 0);
     console.log(' Total number of contacts in array  : ' + count);
+
+    let newContact = new Contact("Amit", 'Kumar', "City", 'Patna', 'Bihar',
+    "903 678", "91 805456456", "assvk7@gmail.com");
+
+
+    //checking there is no duplicate entry of same person
+    
+function checkDuplicates(count, contact) {
+    if (contact != null)
+        count++;
+    return count;
+}
+
+function addContact() {
+    if (countDuplicate == 0) detailsArray.push(newContact);
+    else console.log("\nContact not added in the address book. Duplicate Entry found.\n");
+}
+
+let countDuplicate = detailsArray.filter(contact => contact.firstName == newContact.firstName)
+.map(contact => contact).reduce(checkDuplicates, 0);
+
+addContact();
+
+console.log('Checking duplicate while adding new contact in the address book ');
+detailsArray.forEach((contact) => console.log(contact.toString()));
 }
 catch (e) {
     console.log('Regex test is fail \n' + e);
