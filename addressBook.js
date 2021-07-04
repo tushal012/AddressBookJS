@@ -204,13 +204,14 @@ function countPersonByCity(countByState, contact) {
         countByState++;
     return countByState;
 }
+
 function searchByState() {
     if (serchByState == 0) console.log('Search not found by state name ' + searchState);
     else console.log('\n '+ serchByState + ' Search found by state name ' + searchState);
 }
 let searchState = 'Bihar';
 let serchByState = detailsArray.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
-searchByState();
+
 
 //view person by city or state
 
@@ -220,6 +221,19 @@ let contactByCityArray = detailsArray.filter(contact => contact.city == contactC
 contactByCityArray.forEach(contact => console.log(contact.toString()))
 let contactByStateArray = detailsArray.filter(contact => contact.state == contactState).map(contact => contact);
 contactByStateArray.forEach(contact => console.log(contact.toString()));
+
+// count contact by city or state
+
+function countContacts(counter, contact) {
+    if (contact !== null)
+        counter++;
+    return counter;
+}
+let countByCity = detailsArray.filter(contact => contact.city !== null).map(contact => contact).reduce(countContacts, 0);
+console.log("Count by City " + countByCity);
+let countByState = detailsArray.filter(contact => contact.state !== null).map(contact => contact).reduce(countContacts, 0);
+console.log("Count by City " + countByState);
+
 
 }
 catch (e) {
