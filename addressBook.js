@@ -129,10 +129,19 @@ try {
         "91 9852527734", "tushalkashyap11@gmail.com"));
         detailsArray.push(new Contact("Matla", "Kumar", "Patna", "City", "Bihar", "8000007",
         "91 6287456123", "matla@gmail.com"));
+        detailsArray.push(new Contact('Rakesh', 'RR', 'Gaya', 'Gya', 'Bihar', '801506',
+        '91 7564231988', 'rkRR@gmail.com'));
+
         console.log('contacts before being updated \n');
         detailsArray.forEach((contact) => console.log(contact.toString()));
-        detailsArray.filter(contact => contact.firstName == 'Ravi').map(contact => contact.firstName = "Bahubali");
+
+        detailsArray.filter(contact => contact.firstName == 'Tushal').map(contact => contact.firstName = "RKO");
         console.log('contacts after being updated \n');
+    detailsArray.forEach((contact) => console.log(contact.toString()));
+
+    let index = detailsArray.findIndex(contact => contact.firstName = 'Rakesh');
+    detailsArray.slice(index, 1);
+    console.log('address book after deleting contact ');
     detailsArray.forEach((contact) => console.log(contact.toString()));
 }
 catch (e) {
