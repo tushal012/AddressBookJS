@@ -211,6 +211,16 @@ function searchByState() {
 let searchState = 'Bihar';
 let serchByState = detailsArray.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
 searchByState();
+
+//view person by city or state
+
+let contactCity = "varanasi";
+let contactState = "Uttar pradesh";
+let contactByCityArray = detailsArray.filter(contact => contact.city == contactCity).map(contact => contact);
+contactByCityArray.forEach(contact => console.log(contact.toString()))
+let contactByStateArray = detailsArray.filter(contact => contact.state == contactState).map(contact => contact);
+contactByStateArray.forEach(contact => console.log(contact.toString()));
+
 }
 catch (e) {
     console.log('Regex test is fail \n' + e);
