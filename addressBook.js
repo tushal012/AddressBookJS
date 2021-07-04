@@ -143,6 +143,16 @@ try {
     detailsArray.slice(index, 1);
     console.log('address book after deleting contact ');
     detailsArray.forEach((contact) => console.log(contact.toString()));
+
+    //declare function nd by using reduce method find the number of contacts
+    
+    let count = 0;
+    function findNumberOfContacts(contact) {
+        if (contact != null)
+            return count++;
+    }
+    detailsArray.reduce(findNumberOfContacts, 0);
+    console.log(' Total number of contacts in array  : ' + count);
 }
 catch (e) {
     console.log('Regex test is fail \n' + e);
