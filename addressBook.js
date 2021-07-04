@@ -125,9 +125,9 @@ class Contact {
 
 try {
     let detailsArray = new Array();
-    detailsArray.push(new Contact("Tushal", "Kumar", "Patna", "City", "Bihar", "8000007",
+    detailsArray.push(new Contact("Tushal", "Kumar", "Patna", "danapur", "Bihar", "8000007",
         "91 9852527734", "tushalkashyap11@gmail.com"));
-        detailsArray.push(new Contact("Matla", "Kumar", "Patna", "City", "Bihar", "8000007",
+        detailsArray.push(new Contact("Matla", "Kumar", "Patna", "Kankarbagh", "Bihar", "8000007",
         "91 6287456123", "matla@gmail.com"));
         detailsArray.push(new Contact('Rakesh', 'RR', 'Gaya', 'Gya', 'Bihar', '801506',
         '91 7564231988', 'rkRR@gmail.com'));
@@ -178,6 +178,39 @@ addContact();
 
 console.log('Checking duplicate while adding new contact in the address book ');
 detailsArray.forEach((contact) => console.log(contact.toString()));
+
+// search person in a particular city or state
+
+function countPersonByCity(countByCity, contact) {
+    if (contact != null)
+        countByCity++;
+    return countByCity;
+}
+
+//search  city by person name which is persent in side contact  
+
+function searchByCity() {
+    if (searchByCity == 0) console.log('Search not found by city name ' + searchCity);
+    else console.log("\n" + searchByCity + ' Search found by city name ' + searchCity);
+}
+let searchCity = 'danapur';
+let searchByCity = detailsArray.filter(contact => contact.city == searchCity).map(contact => contact).reduce(countPersonByCity, 0);
+searchByCity();
+
+ // search  state by  name which is persent in side contact  
+
+function countPersonByCity(countByState, contact) {
+    if (contact != null)
+        countByState++;
+    return countByState;
+}
+function searchByState() {
+    if (serchByState == 0) console.log('Search not found by state name ' + searchState);
+    else console.log('\n '+ serchByState + ' Search found by state name ' + searchState);
+}
+let searchState = 'Bihar';
+let serchByState = detailsArray.filter(contact => contact.state == searchState).map(contact => contact).reduce(countPersonByCity, 0);
+searchByState();
 }
 catch (e) {
     console.log('Regex test is fail \n' + e);
